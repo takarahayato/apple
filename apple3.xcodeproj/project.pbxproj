@@ -20,6 +20,7 @@
 		62BF4C3F239F66970066A201 /* MisswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C3E239F66970066A201 /* MisswordViewController.swift */; };
 		62BF4C41239F70220066A201 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C40239F70220066A201 /* EvaluationViewController.swift */; };
 		62BF4C43239F76930066A201 /* SmallmissViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C42239F76930066A201 /* SmallmissViewController.swift */; };
+		E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		62BF4C3E239F66970066A201 /* MisswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisswordViewController.swift; sourceTree = "<group>"; };
 		62BF4C40239F70220066A201 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		62BF4C42239F76930066A201 /* SmallmissViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallmissViewController.swift; sourceTree = "<group>"; };
+		E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				62BF4C13239F4E030066A201 /* Assets.xcassets */,
 				62BF4C15239F4E030066A201 /* LaunchScreen.storyboard */,
 				62BF4C18239F4E030066A201 /* Info.plist */,
+				E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */,
 			);
 			path = apple3;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				62BF4C41239F70220066A201 /* EvaluationViewController.swift in Sources */,
 				62BF4C3F239F66970066A201 /* MisswordViewController.swift in Sources */,
+				E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */,
 				62BF4C3B239F4EA30066A201 /* SecondViewController.swift in Sources */,
 				62BF4C0F239F4E020066A201 /* ViewController.swift in Sources */,
 				62BF4C43239F76930066A201 /* SmallmissViewController.swift in Sources */,

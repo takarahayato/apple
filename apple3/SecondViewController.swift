@@ -42,6 +42,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                   // ③画面遷移
               self.present(nextView, animated: true, completion: nil)
                   }
+    // add wordボタン押下時の処理
+    @IBAction func addword(_ sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Addwordpage") as! AddWordViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var memotableview: UITableView!
     

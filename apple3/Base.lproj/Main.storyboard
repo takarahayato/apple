@@ -230,6 +230,14 @@
                                     <outlet property="delegate" destination="py6-qz-Wnp" id="oxB-ke-Ipq"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3J-7c-mqu">
+                                <rect key="frame" x="175" y="682" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add word"/>
+                                <connections>
+                                    <action selector="addword:" destination="py6-qz-Wnp" eventType="touchUpInside" id="8GS-Z7-UYD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="muh-ug-RFU"/>
@@ -241,6 +249,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TeQ-4n-V8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934.78260869565224" y="114.50892857142857"/>
+        </scene>
+        <!--Add Word View Controller-->
+        <scene sceneID="u9i-Ac-K50">
+            <objects>
+                <viewController storyboardIdentifier="Addwordpage" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="wgk-M0-Dbb" customClass="AddWordViewController" customModule="apple3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gDP-f3-p0M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="単語追加画面です." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-rf-fUM">
+                                <rect key="frame" x="135" y="119" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nRf-GB-djp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBy-jw-cBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="117"/>
         </scene>
         <!--Missword View Controller-->
         <scene sceneID="STI-9c-hDi">
