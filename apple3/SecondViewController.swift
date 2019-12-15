@@ -8,8 +8,24 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
-
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "WordItem", for: indexPath)
+        
+        // セルに表示する値を設定する
+        cell.textLabel!.text = words[indexPath.row]
+        
+        return cell
+    }
+    
+    let words = ["apple", "orange", "melon", "banana", "pineapple", "hoge", "huga--", "hello", "hahaha", "swift"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
