@@ -39,9 +39,11 @@ class AddWordViewController: UIViewController {
     
     @IBAction func addWordButton(_ sender: Any) {
         
+        var wordArray:[String] = []
+        wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
         
         // TextFieldから文字を取得
-        words.append(wordField.text!)
+        words.append(wordArray)
     
 //        words.append(textFieldString)
 

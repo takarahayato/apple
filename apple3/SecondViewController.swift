@@ -8,7 +8,7 @@
 
 import UIKit
 
-var words:[String] = []
+var words:[[String]] = []
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +21,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "WordItem", for: indexPath)
         
         // セルに表示する値を設定する
-        cell.textLabel!.text = words[indexPath.row]
+        cell.textLabel!.text = words[indexPath.row][0]+"                "+words[indexPath.row][1]
         
         return cell
     }
