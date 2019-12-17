@@ -38,21 +38,20 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func addWordButton(_ sender: Any) {
-        
         var wordArray:[String] = []
-        wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
-        
-        // TextFieldから文字を取得
-        words.append(wordArray)
-    
-//        words.append(textFieldString)
-
-        // TextFieldの中身をクリア
-        wordField.text = ""
-        // Secondpageに移動
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
-        self.present(nextView, animated: true, completion: nil)
+        if wordField.text != "" && MeanTextView.text != "" {
+            wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
+            // TextFieldから文字を取得
+            words.append(wordArray)
+            // TextFieldの中身をクリア
+            wordField.text = ""
+            // Secondpageに移動
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
+            self.present(nextView, animated: true, completion: nil)
+        }else{
+            showAlert(title: "単語または意味を入力してください")
+        }
     }
     
     @IBAction func backPage(_ sender: Any) {
@@ -60,6 +59,16 @@ class AddWordViewController: UIViewController {
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
         self.present(nextView, animated: true, completion: nil)
+    }
+    
+    func showAlert(title:String){
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion:nil)
     }
     
     /*
