@@ -49,11 +49,19 @@ class AddWordViewController: UIViewController {
 
         // TextFieldの中身をクリア
         wordField.text = ""
-        
+        // Secondpageに移動
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
         self.present(nextView, animated: true, completion: nil)
     }
+    
+    @IBAction func backPage(_ sender: Any) {
+        // Secondpageに移動
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
