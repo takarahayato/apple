@@ -12,6 +12,11 @@ class AddWordViewController: UIViewController {
 
     @IBOutlet weak var MeanTextView: UITextView!
     
+    @IBOutlet weak var wordField: UITextField!
+    
+    var textFieldString = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 枠のカラー
@@ -33,6 +38,16 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func addWordButton(_ sender: Any) {
+        
+        
+        // TextFieldから文字を取得
+        words.append(wordField.text!)
+    
+//        words.append(textFieldString)
+
+        // TextFieldの中身をクリア
+        wordField.text = ""
+        
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
         self.present(nextView, animated: true, completion: nil)

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var words:[String] = []
+
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +26,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    let words = ["apple", "orange", "melon", "banana", "pineapple", "hoge", "huga--", "hello", "hahaha", "swift"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

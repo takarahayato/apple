@@ -312,6 +312,7 @@
                     </view>
                     <connections>
                         <outlet property="MeanTextView" destination="jO8-ed-Xvn" id="SvI-1I-d6I"/>
+                        <outlet property="wordField" destination="685-JT-VXS" id="zKz-YB-1Gm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBy-jw-cBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
