@@ -33,7 +33,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-0x-2gl">
                                 <rect key="frame" x="369" y="392" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="解答"/>
+                                <state key="normal" title="問題"/>
                                 <connections>
                                     <action selector="goanswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPF-ql-rnZ"/>
                                 </connections>
