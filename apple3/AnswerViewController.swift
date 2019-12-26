@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
-class AnswerViewController: UIViewController {
+class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
+    
     
     @IBOutlet weak var Question: UILabel!
     
@@ -22,14 +24,44 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var NextButton: UIButton!
     
     
+    var player:AVAudioPlayer!
+    var player2:AVAudioPlayer!
+    var audioPlayer: AVAudioPlayer!
     var RandomNumber :Int!
     var Judgment : DarwinBoolean!
     var RandomFour = [0,1,2,3]
     var Choices = [Int]()
 
 
+    
+    
+   
+    
+    
     override func viewDidLoad() {
+        
+        
+        playSound(name: "12058")
+        
+        
         super.viewDidLoad()
+        
+        let audioPath = Bundle.main.path(forResource: "incorrect1", ofType:"mp3")!
+        let audioUrl = URL(fileURLWithPath: audioPath)
+        
+        let audioPath2 = Bundle.main.path(forResource: "correct1", ofType:"mp3")!
+        let audioUr2 = URL(fileURLWithPath: audioPath2)
+        
+        
+        do {
+            try player = AVAudioPlayer(contentsOf:audioUrl)
+            
+            try player2 = AVAudioPlayer(contentsOf:audioUr2)
+            //音楽をバッファに読み込んでおく
+            player.prepareToPlay()
+        } catch {
+            print(error)
+        }
         
         RandomQuestions()
         
@@ -85,9 +117,11 @@ class AnswerViewController: UIViewController {
     @IBAction func Button1Action(_ sender: Any) {
         if(words[Choices[RandomFour[0]]][0] == words[Choices[0]][0]){
             Answer.text = "正解！"
+            player2.play()
         }
         else{
             Answer.text = "残念正解は\(words[Choices[0]][1])"
+            player.play()
         }
         UnHide()
     }
@@ -95,10 +129,12 @@ class AnswerViewController: UIViewController {
     @IBAction func Button2Action(_ sender: Any) {
         if(words[Choices[RandomFour[1]]][0] == words[Choices[0]][0]){
             Answer.text = "正解！"
+            player2.play()
         }
         else{
             
             Answer.text = "残念正解は\(words[Choices[0]][1])"
+            player.play()
         }
         UnHide()
     }
@@ -107,9 +143,11 @@ class AnswerViewController: UIViewController {
     @IBAction func Button3Action(_ sender: Any) {
         if(words[Choices[RandomFour[2]]][0] == words[Choices[0]][0]){
             Answer.text = "正解！"
+            player2.play()
         }
         else{
             Answer.text = "残念正解は\(words[Choices[0]][1])"
+             player.play()
         }
         UnHide()
     }
@@ -117,9 +155,11 @@ class AnswerViewController: UIViewController {
     @IBAction func Button4Action(_ sender: Any) {
         if(words[Choices[RandomFour[3]]][0] == words[Choices[0]][0]){
             Answer.text = "正解！"
+            player2.play()
         }
         else{
             Answer.text = "残念正解は\(words[Choices[0]][1])"
+            player.play()
         }
         UnHide()
     }
@@ -144,6 +184,8 @@ class AnswerViewController: UIViewController {
               let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
                   // ③画面遷移
               self.present(nextView, animated: true, completion: nil)
+        
+              audioPlayer.stop()
                   }
     
 
@@ -157,7 +199,34 @@ class AnswerViewController: UIViewController {
                let nextView = storyboard.instantiateViewController(withIdentifier: "Evaluationpage") as! EvaluationViewController
                    // ③画面遷移
                self.present(nextView, animated: true, completion: nil)
+        
+               audioPlayer.stop()
                    }
+    
+     
+    
+    func playSound(name: String) {
+           guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+           print("音源ファイルが見つかりません")
+               return
+           }
+
+           do {
+        //AVAudioPlayerのインスタンス化
+               audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+         //AVAudioPlayerのデリゲートをセット
+               audioPlayer.delegate = self
+
+               // 音声の再生
+               audioPlayer.play()
+            
+            //音楽のループ
+            audioPlayer.numberOfLoops = -1
+           }
+           catch {
+           }
+       }
 
       /*
     // MARK: - Navigation
