@@ -9,27 +9,39 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
+    let userDefaults = UserDefaults.standard
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        // 配列wordsをuserdefaultで保存する．
+//        userDefaults.set(words, forKey: "wordsArray")
+        userDefaults.register(defaults: ["wordsArray": []])
+        words = userDefaults.array(forKey: "wordsArray") as! [[String]]
                 // Do any additional setup after loading the view.
     }
  
-    // 解答ボタン押下時の処理
+    // 問題ボタン押下時の処理
        @IBAction func goanswer(_ sender: Any) {
+        if words.count >= 4 {
+            // ①storyboardのインスタンス取得
+                   let storyboard: UIStoryboard = self.storyboard!
+            
+                   // ②遷移先ViewControllerのインスタンス取得
+                   let nextView = storyboard.instantiateViewController(withIdentifier: "Answerpage") as! AnswerViewController
+                       // ③画面遷移
+                   self.present(nextView, animated: true, completion: nil)
+        } else {
+            showAlert(title: "単語を4つ以上登録してください")
+        }
+
+    }
     
-           // ①storyboardのインスタンス取得
-           let storyboard: UIStoryboard = self.storyboard!
-    
-           // ②遷移先ViewControllerのインスタンス取得
-           let nextView = storyboard.instantiateViewController(withIdentifier: "Answerpage") as! AnswerViewController
-               // ③画面遷移
-           self.present(nextView, animated: true, completion: nil)
-               }
-    
+           
     
     
     
@@ -52,6 +64,16 @@ class ViewController: UIViewController {
             // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
             }
+    //アラートを表示するための関数
+    func showAlert(title:String){
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion:nil)
+    }
 
     
 
