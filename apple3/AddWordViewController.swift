@@ -16,6 +16,8 @@ class AddWordViewController: UIViewController {
     @IBOutlet weak var wordField: UITextField!
     
     var textFieldString = ""
+    
+    let userDefaults = UserDefaults.standard
 
     
     override func viewDidLoad() {
@@ -44,6 +46,8 @@ class AddWordViewController: UIViewController {
             wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
             // TextFieldから文字を取得
             words.append(wordArray)
+            // 配列wordsをuserdefaultで保存する．
+            userDefaults.set(words, forKey: "wordsArray")
             // TextFieldの中身をクリア
             wordField.text = ""
             // Secondpageに移動

@@ -9,12 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
+    let userDefaults = UserDefaults.standard
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        words = userDefaults.array(forKey: "wordsArray") as! [[String]]
                 // Do any additional setup after loading the view.
     }
  
