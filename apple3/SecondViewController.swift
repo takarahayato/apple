@@ -12,6 +12,8 @@ var words:[[String]] = []
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let userDefaults = UserDefaults.standard
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
     }
@@ -27,10 +29,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // UserDefaultsへの値の保存を明示的に行う
+        userDefaults.synchronize()
+        
         // Do any additional setup after loading the view.
     }
     // backボタン押下時の処理
