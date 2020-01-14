@@ -18,7 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        // 配列wordsをuserdefaultで保存する．
+//        userDefaults.set(words, forKey: "wordsArray")
+        userDefaults.register(defaults: ["wordsArray": []])
         words = userDefaults.array(forKey: "wordsArray") as! [[String]]
                 // Do any additional setup after loading the view.
     }
