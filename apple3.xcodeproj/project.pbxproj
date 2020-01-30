@@ -24,7 +24,9 @@
 		6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */; };
 		6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */; };
 		6C00D7AC23B46CD300DD7FB4 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */; };
+		E44D37DB23E278B4009D9EF2 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E44D37DA23E278B4009D9EF2 /* test.png */; };
 		E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */; };
+		E4B2299223E2766400E3BBDD /* addBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2299123E2766400E3BBDD /* addBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +70,9 @@
 		6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect1.mp3; sourceTree = "<group>"; };
 		6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12058.mp3; sourceTree = "<group>"; };
 		6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
+		E44D37DA23E278B4009D9EF2 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
+		E4B2299123E2766400E3BBDD /* addBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +138,11 @@
 				62BF4C3C239F61520066A201 /* AnswerViewController.swift */,
 				62BF4C3A239F4EA30066A201 /* SecondViewController.swift */,
 				62BF4C13239F4E030066A201 /* Assets.xcassets */,
+				E44D37DA23E278B4009D9EF2 /* test.png */,
 				62BF4C15239F4E030066A201 /* LaunchScreen.storyboard */,
 				62BF4C18239F4E030066A201 /* Info.plist */,
 				E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */,
+				E4B2299123E2766400E3BBDD /* addBackground.swift */,
 			);
 			path = apple3;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 			files = (
 				6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */,
 				62BF4C17239F4E030066A201 /* LaunchScreen.storyboard in Resources */,
+				E44D37DB23E278B4009D9EF2 /* test.png in Resources */,
 				62BF4C14239F4E030066A201 /* Assets.xcassets in Resources */,
 				6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */,
 				62BF4C12239F4E020066A201 /* Main.storyboard in Resources */,
@@ -302,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62BF4C41239F70220066A201 /* EvaluationViewController.swift in Sources */,
+				E4B2299223E2766400E3BBDD /* addBackground.swift in Sources */,
 				62BF4C3F239F66970066A201 /* MisswordViewController.swift in Sources */,
 				E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */,
 				62BF4C3B239F4EA30066A201 /* SecondViewController.swift in Sources */,
@@ -483,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A27U659W33;
 				INFOPLIST_FILE = apple3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A27U659W33;
 				INFOPLIST_FILE = apple3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
