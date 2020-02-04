@@ -28,12 +28,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+    //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            words.remove(at: indexPath.row)
+//            userDefaults.synchronize() これは現在非推奨らしい
+            userDefaults.set(words, forKey: "wordsArray")
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // UserDefaultsへの値の保存を明示的に行う
-        userDefaults.synchronize()
         
         // Do any additional setup after loading the view.
     }
