@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DCE0DC923E93CA90008DB10 /* test2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2DCE0DC823E93CA90008DB10 /* test2.JPG */; };
 		62BF4C0B239F4E020066A201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C0A239F4E020066A201 /* AppDelegate.swift */; };
 		62BF4C0D239F4E020066A201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C0C239F4E020066A201 /* SceneDelegate.swift */; };
 		62BF4C0F239F4E020066A201 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C0E239F4E020066A201 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DCE0DC823E93CA90008DB10 /* test2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.JPG; sourceTree = "<group>"; };
 		62BF4C07239F4E020066A201 /* apple3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apple3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BF4C0A239F4E020066A201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62BF4C0C239F4E020066A201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				62BF4C0E239F4E020066A201 /* ViewController.swift */,
 				62BF4C10239F4E020066A201 /* Main.storyboard */,
 				62BF4C42239F76930066A201 /* SmallmissViewController.swift */,
+				2DCE0DC823E93CA90008DB10 /* test2.JPG */,
 				62BF4C40239F70220066A201 /* EvaluationViewController.swift */,
 				62BF4C3E239F66970066A201 /* MisswordViewController.swift */,
 				62BF4C3C239F61520066A201 /* AnswerViewController.swift */,
@@ -279,6 +282,7 @@
 			files = (
 				6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */,
 				62BF4C17239F4E030066A201 /* LaunchScreen.storyboard in Resources */,
+				2DCE0DC923E93CA90008DB10 /* test2.JPG in Resources */,
 				E44D37DB23E278B4009D9EF2 /* test.png in Resources */,
 				62BF4C14239F4E030066A201 /* Assets.xcassets in Resources */,
 				6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */,
