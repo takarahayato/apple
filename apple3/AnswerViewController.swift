@@ -70,7 +70,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         }
         
         RandomQuestions()
-        
+        missWords = []
         
 
         // Do any additional setup after loading the view.
@@ -119,7 +119,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         NextButton.isHidden = false
     }
     
-    
+    // 正誤判定
     func Judge(Choice:Int){
         if(ButtonPush == true){
             ButtonPush = false
@@ -165,12 +165,15 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
             }
         }
         else{
+            // 誤答単語一覧での単語の重複を解消する
+            let orderedSet2: NSOrderedSet = NSOrderedSet(array: missWords)
+            missWords = orderedSet2.array as! [[String]]
             for i in missWords {
                 allMissWords.append(i)
             }
+            // 全誤答単語一覧での単語の重複を解消する
             let orderedSet: NSOrderedSet = NSOrderedSet(array: allMissWords)
             allMissWords = orderedSet.array as! [[String]]
-            missWords = []
             evaluation()
         }
     }

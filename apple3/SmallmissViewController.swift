@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SmallmissViewController: UIViewController {
+class SmallmissViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,20 @@ class SmallmissViewController: UIViewController {
            self.present(nextView, animated: true, completion: nil)
                }
 
+    
+    // tableViewに表示するセルの数を指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return missWords.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "tempoMissItem", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = missWords[indexPath.row][0]+"                "+missWords[indexPath.row][1]
+
+        return cell
+    }
     
 
     /*
