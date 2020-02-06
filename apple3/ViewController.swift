@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         words = userDefaults.array(forKey: "wordsArray") as! [[String]]
                 // Do any additional setup after loading the view.
         // 表示したい画像の名前(拡張子含む)を引数とする。
-        self.view.addBackground(name: "test.png")
+        self.view.addBackground(name: "test2.JPG")
     }
  
     // 問題ボタン押下時の処理
