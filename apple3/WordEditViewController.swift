@@ -15,6 +15,10 @@ class WordEditViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet weak var wordField: UITextField!
+    @IBOutlet weak var meanWordField: UITextView!
+    
     // 戻るボタンで単語一覧画面に戻る
     @IBAction func pageBack(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
@@ -22,6 +26,15 @@ class WordEditViewController: UIViewController {
         self.present(nextView, animated: true, completion: nil)
     }
     
+    // 修正ボタンを押した時の動作
+    @IBAction func wordModify(_ sender: Any) {
+        // 単語の修正を反映させる
+        words[sell] = [wordField.text!, meanWordField.text!]
+        // 単語一覧画面に戻る
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation

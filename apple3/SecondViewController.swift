@@ -8,14 +8,21 @@
 
 import UIKit
 
+// 単語とその意味のリストのリスト
+// ex. [["hello", "こんにちは"], ["see", "見る"]]
 var words:[[String]] = []
+// タップしたセルのインデックス番号を保存
+var sell:Int = 0
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
     
-    // 単語のセルをタップした時に編集画面に移動
+    // 単語のセルをタップした時の動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // タップしたセルのインデックス番号を保存
+        sell = indexPath.row
+        // 単語編集画面に移動
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "WordEdit") as! WordEditViewController
         self.present(nextView, animated: true, completion: nil)
