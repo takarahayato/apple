@@ -14,6 +14,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let userDefaults = UserDefaults.standard
     
+    // 単語のセルをタップした時に編集画面に移動
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "WordEdit") as! WordEditViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
     }
