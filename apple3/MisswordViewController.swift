@@ -8,24 +8,48 @@
 
 import UIKit
 
-class MisswordViewController: UIViewController {
+class MisswordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    
+    // 戻るボタンを押した時の動作
     @IBAction func goback(_ sender: Any) {
-       
-              // ①storyboardのインスタンス取得
-              let storyboard: UIStoryboard = self.storyboard!
-       
-              // ②遷移先ViewControllerのインスタンス取得
-              let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
-                  // ③画面遷移
-              self.present(nextView, animated: true, completion: nil)
-                  }
+       // スタート画面に移動する
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
+        self.present(nextView, animated: true, completion: nil)
+          }
+    
+    
+    
+    // tableViewに表示するセルの数を指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+    
+    
+    
+    // セルに値を表示する
+    // 本来は誤答した単語のリストを渡すが，今は仮にwordsを渡している．
+    // 誤答単語リストができたらwordsをそれに置き換えて欲しい．
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "missItem", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = words[indexPath.row][0]+"                "+words[indexPath.row][1]
+
+        return cell
+    }
+    
+    
     
     /*
     // MARK: - Navigation
