@@ -8,10 +8,13 @@
 
 import UIKit
 
+var allMissWords:[[String]] = []
+
 class MisswordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var tableView: UITableView!
+    
     
     
     override func viewDidLoad() {
@@ -32,10 +35,8 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
     
     // tableViewに表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        return allMissWords.count
     }
-    
-    
     
     // セルに値を表示する
     // 本来は誤答した単語のリストを渡すが，今は仮にwordsを渡している．
@@ -44,7 +45,7 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "missItem", for: indexPath)
         // セルに表示する値を設定する
-        cell.textLabel!.text = words[indexPath.row][0]+"                "+words[indexPath.row][1]
+        cell.textLabel!.text = allMissWords[indexPath.row][0]+"                "+allMissWords[indexPath.row][1]
 
         return cell
     }
