@@ -10,15 +10,18 @@
 import UIKit
 
 class AddWordViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var MeanTextView: UITextView!
-    
     @IBOutlet weak var wordField: UITextField!
     
-    var textFieldString = ""
     
+    
+    var textFieldString = ""
     let userDefaults = UserDefaults.standard
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,38 +29,49 @@ class AddWordViewController: UIViewController {
         MeanTextView.layer.borderColor = UIColor.black.cgColor
         // 枠の幅
         MeanTextView.layer.borderWidth = 0.5
-        
-
-        // Do any additional setup after loading the view.
     }
+    
+    
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // テキスト入力部以外をタッチするとキーボードを格納
         self.view.endEditing(true)
     }
-    // 語の意味を入力するフィールド
-    @IBAction func wordTextField(_ sender: Any) {
-    }
+    
+    
+
+    
     
     @IBAction func addWordButton(_ sender: Any) {
+        
         var wordArray:[String] = []
+        
+        
         if wordField.text != "" && MeanTextView.text != "" {
-            wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
+            
             // TextFieldから文字を取得
+            wordArray.append(contentsOf:[wordField.text!,MeanTextView.text!])
             words.append(wordArray)
+            
             // 配列wordsをuserdefaultで保存する．
             userDefaults.set(words, forKey: "wordsArray")
+            
             // TextFieldの中身をクリア
             wordField.text = ""
+            
             // Secondpageに移動
             let storyboard: UIStoryboard = self.storyboard!
             let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
             self.present(nextView, animated: true, completion: nil)
+            
         }else{
             showAlert(title: "単語または意味を入力してください")
         }
     }
+    
+    
+    
     
     @IBAction func backPage(_ sender: Any) {
         // Secondpageに移動
@@ -66,13 +80,13 @@ class AddWordViewController: UIViewController {
         self.present(nextView, animated: true, completion: nil)
     }
     
+    
+    
+    
     func showAlert(title:String){
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
         alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
-
         self.present(alert, animated: true, completion:nil)
     }
     
