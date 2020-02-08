@@ -9,6 +9,9 @@
 import UIKit
 import AVFoundation
 
+var Correct_answer_count :Int = 0
+var missWords:[[String]] = []
+
 class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     
@@ -28,10 +31,13 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     var player2:AVAudioPlayer!
     var audioPlayer: AVAudioPlayer!
     var RandomNumber :Int!
+    var count :Int = 0
     var Judgment : DarwinBoolean!
+    var ButtonPush : DarwinBoolean!
     var RandomFour = [0,1,2,3]
     var Choices = [Int]()
-
+    
+    var userDefaults = UserDefaults.standard
 
     
     
@@ -64,13 +70,14 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         }
         
         RandomQuestions()
-        
+        missWords = []
         
 
         // Do any additional setup after loading the view.
     }
     
     func RandomQuestions(){
+        ButtonPush = true
         Hide()
         Choices = [Int]()
         Choices.append(Int(arc4random()) % words.count)
@@ -112,62 +119,64 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         NextButton.isHidden = false
     }
     
+    // 正誤判定
+    func Judge(Choice:Int){
+        if(ButtonPush == true){
+            ButtonPush = false
+            if(words[Choice][0] == words[Choices[0]][0]){
+                Answer.text = "正解！"
+                player2.play()
+                Correct_answer_count = Correct_answer_count + 1
+            }
+            else{
+                Answer.text = "残念正解は\(words[Choices[0]][1])"
+                missWords.append(words[Choices[0]])
+                player.play()
+            }
+            UnHide()
+        }
+    }
 
     
     @IBAction func Button1Action(_ sender: Any) {
-        if(words[Choices[RandomFour[0]]][0] == words[Choices[0]][0]){
-            Answer.text = "正解！"
-            player2.play()
-        }
-        else{
-            Answer.text = "残念正解は\(words[Choices[0]][1])"
-            player.play()
-        }
-        UnHide()
+        Judge(Choice: Choices[RandomFour[0]])
     }
     
     @IBAction func Button2Action(_ sender: Any) {
-        if(words[Choices[RandomFour[1]]][0] == words[Choices[0]][0]){
-            Answer.text = "正解！"
-            player2.play()
-        }
-        else{
-            
-            Answer.text = "残念正解は\(words[Choices[0]][1])"
-            player.play()
-        }
-        UnHide()
+        Judge(Choice: Choices[RandomFour[1]])
     }
     
-    
     @IBAction func Button3Action(_ sender: Any) {
-        if(words[Choices[RandomFour[2]]][0] == words[Choices[0]][0]){
-            Answer.text = "正解！"
-            player2.play()
-        }
-        else{
-            Answer.text = "残念正解は\(words[Choices[0]][1])"
-             player.play()
-        }
-        UnHide()
+        Judge(Choice: Choices[RandomFour[2]])
     }
     
     @IBAction func Button4Action(_ sender: Any) {
-        if(words[Choices[RandomFour[3]]][0] == words[Choices[0]][0]){
-            Answer.text = "正解！"
-            player2.play()
-        }
-        else{
-            Answer.text = "残念正解は\(words[Choices[0]][1])"
-            player.play()
-        }
-        UnHide()
+        Judge(Choice: Choices[RandomFour[3]])
     }
     
     
     
     @IBAction func NextButtonAction(_ sender: Any) {
-        RandomQuestions()
+        if(count != 9){
+            RandomQuestions()
+            count = count + 1
+            if(count == 9){
+                NextButton.setTitle("終了", for: UIControl.State())
+            }
+        }
+        else{
+            // 誤答単語一覧での単語の重複を解消する
+            let orderedSet2: NSOrderedSet = NSOrderedSet(array: missWords)
+            missWords = orderedSet2.array as! [[String]]
+            for i in missWords {
+                allMissWords.append(i)
+            }
+            // 全誤答単語一覧での単語の重複を解消する
+            let orderedSet: NSOrderedSet = NSOrderedSet(array: allMissWords)
+            allMissWords = orderedSet.array as! [[String]]
+            userDefaults.set(allMissWords, forKey: "miss")
+            evaluation()
+        }
     }
     
     
@@ -176,32 +185,31 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     // backボタン押下時の処理
     @IBAction func goback(_ sender: Any) {
-       
-              // ①storyboardのインスタンス取得
-              let storyboard: UIStoryboard = self.storyboard!
-       
-              // ②遷移先ViewControllerのインスタンス取得
-              let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
-                  // ③画面遷移
-              self.present(nextView, animated: true, completion: nil)
-        
-              audioPlayer.stop()
-                  }
+          // ①storyboardのインスタンス取得
+          let storyboard: UIStoryboard = self.storyboard!
+   
+          // ②遷移先ViewControllerのインスタンス取得
+          let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
+              // ③画面遷移
+          self.present(nextView, animated: true, completion: nil)
+    
+          audioPlayer.stop()
+    }
     
 
     
 //
-    @IBAction func evaluation(_ sender: Any){
-               // ①storyboardのインスタンス取得
-               let storyboard: UIStoryboard = self.storyboard!
-        
-               // ②遷移先ViewControllerのインスタンス取得
-               let nextView = storyboard.instantiateViewController(withIdentifier: "Evaluationpage") as! EvaluationViewController
-                   // ③画面遷移
-               self.present(nextView, animated: true, completion: nil)
-        
-               audioPlayer.stop()
-                   }
+    func evaluation(){
+           // ①storyboardのインスタンス取得
+           let storyboard: UIStoryboard = self.storyboard!
+    
+           // ②遷移先ViewControllerのインスタンス取得
+           let nextView = storyboard.instantiateViewController(withIdentifier: "Evaluationpage") as! EvaluationViewController
+               // ③画面遷移
+           self.present(nextView, animated: true, completion: nil)
+    
+           audioPlayer.stop()
+    }
     
      
     
