@@ -48,7 +48,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return true
     }
 
-    //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+    //スワイプしたセルを削除　
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             words.remove(at: indexPath.row)

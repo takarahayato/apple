@@ -15,6 +15,9 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    var userDefaults = UserDefaults.standard
+
+    
     
     
     override func viewDidLoad() {
@@ -50,7 +53,22 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+    //スワイプしたセルを削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            allMissWords.remove(at: indexPath.row)
+//            userDefaults.synchronize() これは現在非推奨らしい
+            userDefaults.set(allMissWords, forKey: "miss")
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+
     
     /*
     // MARK: - Navigation
