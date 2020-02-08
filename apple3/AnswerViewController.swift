@@ -37,7 +37,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     var RandomFour = [0,1,2,3]
     var Choices = [Int]()
     
-    
+    var userDefaults = UserDefaults.standard
 
     
     
@@ -174,6 +174,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
             // 全誤答単語一覧での単語の重複を解消する
             let orderedSet: NSOrderedSet = NSOrderedSet(array: allMissWords)
             allMissWords = orderedSet.array as! [[String]]
+            userDefaults.set(allMissWords, forKey: "miss")
             evaluation()
         }
     }
