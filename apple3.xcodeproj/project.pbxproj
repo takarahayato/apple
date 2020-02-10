@@ -25,6 +25,15 @@
 		6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */; };
 		6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */; };
 		6C00D7AC23B46CD300DD7FB4 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */; };
+		6C5A97CD23F1459000D46CAC /* MIsswordView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C423F1459000D46CAC /* MIsswordView.mp3 */; };
+		6C5A97CE23F1459000D46CAC /* AnswerView2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C523F1459000D46CAC /* AnswerView2.mp3 */; };
+		6C5A97CF23F1459000D46CAC /* AddWordView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C623F1459000D46CAC /* AddWordView.mp3 */; };
+		6C5A97D023F1459000D46CAC /* SmallmissView2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C723F1459000D46CAC /* SmallmissView2.mp3 */; };
+		6C5A97D123F1459000D46CAC /* EvaluationView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C823F1459000D46CAC /* EvaluationView.mp3 */; };
+		6C5A97D223F1459000D46CAC /* ViewController.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97C923F1459000D46CAC /* ViewController.mp3 */; };
+		6C5A97D323F1459000D46CAC /* Word EditView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97CA23F1459000D46CAC /* Word EditView.mp3 */; };
+		6C5A97D423F1459000D46CAC /* SecondView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97CB23F1459000D46CAC /* SecondView.mp3 */; };
+		6C5A97D523F1459000D46CAC /* SmallmissView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C5A97CC23F1459000D46CAC /* SmallmissView.mp3 */; };
 		E44D37DB23E278B4009D9EF2 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E44D37DA23E278B4009D9EF2 /* test.png */; };
 		E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */; };
 		E477E5CF23EB980A008A6A9F /* WordEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477E5CE23EB980A008A6A9F /* WordEditViewController.swift */; };
@@ -73,6 +82,15 @@
 		6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect1.mp3; sourceTree = "<group>"; };
 		6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12058.mp3; sourceTree = "<group>"; };
 		6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
+		6C5A97C423F1459000D46CAC /* MIsswordView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MIsswordView.mp3; path = AP_music3/MIsswordView.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97C523F1459000D46CAC /* AnswerView2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AnswerView2.mp3; path = AP_music3/AnswerView2.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97C623F1459000D46CAC /* AddWordView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AddWordView.mp3; path = AP_music3/AddWordView.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97C723F1459000D46CAC /* SmallmissView2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SmallmissView2.mp3; path = AP_music3/SmallmissView2.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97C823F1459000D46CAC /* EvaluationView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = EvaluationView.mp3; path = AP_music3/EvaluationView.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97C923F1459000D46CAC /* ViewController.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ViewController.mp3; path = AP_music3/ViewController.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97CA23F1459000D46CAC /* Word EditView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Word EditView.mp3"; path = "AP_music3/Word EditView.mp3"; sourceTree = SOURCE_ROOT; };
+		6C5A97CB23F1459000D46CAC /* SecondView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SecondView.mp3; path = AP_music3/SecondView.mp3; sourceTree = SOURCE_ROOT; };
+		6C5A97CC23F1459000D46CAC /* SmallmissView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SmallmissView.mp3; path = AP_music3/SmallmissView.mp3; sourceTree = SOURCE_ROOT; };
 		E44D37DA23E278B4009D9EF2 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		E477E5CE23EB980A008A6A9F /* WordEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEditViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +150,15 @@
 				6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */,
 				6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */,
 				6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */,
+				6C5A97C623F1459000D46CAC /* AddWordView.mp3 */,
+				6C5A97C523F1459000D46CAC /* AnswerView2.mp3 */,
+				6C5A97C823F1459000D46CAC /* EvaluationView.mp3 */,
+				6C5A97C423F1459000D46CAC /* MIsswordView.mp3 */,
+				6C5A97CB23F1459000D46CAC /* SecondView.mp3 */,
+				6C5A97CC23F1459000D46CAC /* SmallmissView.mp3 */,
+				6C5A97C723F1459000D46CAC /* SmallmissView2.mp3 */,
+				6C5A97C923F1459000D46CAC /* ViewController.mp3 */,
+				6C5A97CA23F1459000D46CAC /* Word EditView.mp3 */,
 				62BF4C0A239F4E020066A201 /* AppDelegate.swift */,
 				62BF4C0C239F4E020066A201 /* SceneDelegate.swift */,
 				62BF4C0E239F4E020066A201 /* ViewController.swift */,
@@ -285,11 +312,20 @@
 			files = (
 				6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */,
 				62BF4C17239F4E030066A201 /* LaunchScreen.storyboard in Resources */,
+				6C5A97D123F1459000D46CAC /* EvaluationView.mp3 in Resources */,
+				6C5A97D423F1459000D46CAC /* SecondView.mp3 in Resources */,
 				2DCE0DC923E93CA90008DB10 /* test2.JPG in Resources */,
 				E44D37DB23E278B4009D9EF2 /* test.png in Resources */,
 				62BF4C14239F4E030066A201 /* Assets.xcassets in Resources */,
 				6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */,
+				6C5A97D223F1459000D46CAC /* ViewController.mp3 in Resources */,
+				6C5A97D023F1459000D46CAC /* SmallmissView2.mp3 in Resources */,
+				6C5A97CF23F1459000D46CAC /* AddWordView.mp3 in Resources */,
+				6C5A97CE23F1459000D46CAC /* AnswerView2.mp3 in Resources */,
+				6C5A97D523F1459000D46CAC /* SmallmissView.mp3 in Resources */,
 				62BF4C12239F4E020066A201 /* Main.storyboard in Resources */,
+				6C5A97D323F1459000D46CAC /* Word EditView.mp3 in Resources */,
+				6C5A97CD23F1459000D46CAC /* MIsswordView.mp3 in Resources */,
 				6C00D7AC23B46CD300DD7FB4 /* correct1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

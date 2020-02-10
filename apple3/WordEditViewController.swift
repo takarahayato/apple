@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
-class WordEditViewController: UIViewController {
+class WordEditViewController: UIViewController,AVAudioPlayerDelegate {
     
     
-    
+    var audio7Player: AVAudioPlayer!
     
 
     override func viewDidLoad() {
+        
+        playSound(name: "Word EditView")
+        
         super.viewDidLoad()
         wordField.text = words[cell_num][0]
         meanWordField.text = words[cell_num][1]
@@ -33,6 +37,9 @@ class WordEditViewController: UIViewController {
     
     // 戻るボタンで単語一覧画面に戻る
     @IBAction func pageBack(_ sender: Any) {
+        
+        audio7Player.stop()
+        
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
         self.present(nextView, animated: true, completion: nil)
@@ -43,6 +50,9 @@ class WordEditViewController: UIViewController {
     
     // 修正ボタンを押した時の動作
     @IBAction func wordModify(_ sender: Any) {
+        
+        audio7Player.stop()
+        
         if wordField.text != "" && meanWordField.text != "" {
             // 単語の修正を反映させる
             words[cell_num] = [wordField.text!, meanWordField.text!]
@@ -86,5 +96,33 @@ class WordEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func playSound(name: String) {
+                  guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+                  print("音源ファイルが見つかりません")
+                      return
+                  }
+
+                  do {
+               //AVAudioPlayerのインスタンス化
+                      audio7Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+                //AVAudioPlayerのデリゲートをセット
+                      audio7Player.delegate = self
+
+                      // 音声の再生
+                      audio7Player.play()
+                   
+                   //音楽のループ
+                   audio7Player.numberOfLoops = -1
+                  }
+                  catch {
+                  }
+        
+
+
+    }
+
 
 }

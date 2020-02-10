@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 var allMissWords:[[String]] = []
 
-class MisswordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MisswordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate {
 
+    
+    var audio6Player: AVAudioPlayer!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +24,9 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     override func viewDidLoad() {
+        
+        playSound(name: "MIsswordView")
+        
         super.viewDidLoad()
     }
     
@@ -28,6 +34,9 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
     
     // 戻るボタンを押した時の動作
     @IBAction func goback(_ sender: Any) {
+        
+        audio6Player.stop()
+        
        // スタート画面に移動する
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
@@ -79,5 +88,31 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func playSound(name: String) {
+                  guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+                  print("音源ファイルが見つかりません")
+                      return
+                  }
+
+                  do {
+               //AVAudioPlayerのインスタンス化
+                      audio6Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+                //AVAudioPlayerのデリゲートをセット
+                      audio6Player.delegate = self
+
+                      // 音声の再生
+                      audio6Player.play()
+                   
+                   //音楽のループ
+                   audio6Player.numberOfLoops = -1
+                  }
+                  catch {
+                  }
+        
+
+
+    }
 
 }

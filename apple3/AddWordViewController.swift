@@ -8,10 +8,11 @@
 //
 
 import UIKit
+import AVFoundation
 
-class AddWordViewController: UIViewController {
+class AddWordViewController: UIViewController,AVAudioPlayerDelegate {
     
-    
+    var audio8Player: AVAudioPlayer!
 
     @IBOutlet weak var MeanTextView: UITextView!
     @IBOutlet weak var wordField: UITextField!
@@ -24,6 +25,9 @@ class AddWordViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        playSound(name: "AddWordView")
+        
         super.viewDidLoad()
         // 枠のカラー
         MeanTextView.layer.borderColor = UIColor.black.cgColor
@@ -44,6 +48,8 @@ class AddWordViewController: UIViewController {
     
     
     @IBAction func addWordButton(_ sender: Any) {
+        
+        audio8Player.stop()
         
         var wordArray:[String] = []
         
@@ -74,6 +80,9 @@ class AddWordViewController: UIViewController {
     
     
     @IBAction func backPage(_ sender: Any) {
+        
+        audio8Player.stop()
+        
         // Secondpageに移動
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController
@@ -99,5 +108,32 @@ class AddWordViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func playSound(name: String) {
+                  guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+                  print("音源ファイルが見つかりません")
+                      return
+                  }
+
+                  do {
+               //AVAudioPlayerのインスタンス化
+                      audio8Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+                //AVAudioPlayerのデリゲートをセット
+                      audio8Player.delegate = self
+
+                      // 音声の再生
+                      audio8Player.play()
+                   
+                   //音楽のループ
+                   audio8Player.numberOfLoops = -1
+                  }
+                  catch {
+                  }
+        
+
+
+    }
+
 
 }

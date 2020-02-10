@@ -15,7 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-           
                             <button opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wBR-nz-S72">
                                 <rect key="frame" x="254" y="436" width="259" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -30,13 +29,11 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-
                                 </state>
                                 <connections>
                                     <action selector="goadd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oRg-eC-L0E"/>
                                 </connections>
                             </button>
-                            
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-eW-KUg">
                                 <rect key="frame" x="254" y="755" width="261" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,13 +48,11 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-
                                 </state>
                                 <connections>
                                     <action selector="gomissword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEw-xS-gEd"/>
                                 </connections>
                             </button>
-                            
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-0x-2gl">
                                 <rect key="frame" x="254" y="598" width="259" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,7 +67,6 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-
                                 </state>
                                 <connections>
                                     <action selector="goanswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPF-ql-rnZ"/>
@@ -85,10 +79,6 @@
                                 <color key="textColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="0.41272474315068491" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="reG-Cq-mi5">
-                                <rect key="frame" x="327" y="164" width="115" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -107,16 +97,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-rv-a1C">
-
                                 <rect key="frame" x="67" y="74" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ホームへ"/>
-
                                 <connections>
                                     <action selector="goback:" destination="ugl-r4-hUU" eventType="touchUpInside" id="BPK-Qg-nFd"/>
                                 </connections>
                             </button>
-
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAE-y7-hSW">
                                 <rect key="frame" x="118" y="459" width="250" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -581,7 +568,4 @@
             <point key="canvasLocation" x="933.59375" y="800.9765625"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="calendar" catalog="system" width="64" height="52"/>
-    </resources>
 </document>

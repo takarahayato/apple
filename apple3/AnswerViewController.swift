@@ -15,6 +15,9 @@ var missWords:[[String]] = []
 class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     
+    let number = Int.random(in: 1 ... 2)
+    
+    
     @IBOutlet weak var Question: UILabel!
     
     @IBOutlet weak var Button1: UIButton!
@@ -46,8 +49,12 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     override func viewDidLoad() {
         
+        if number == 1 {
+            playSound(name: "AnswerView2")
+        } else {
+            playSound(name: "12058")
+        }
         
-        playSound(name: "12058")
         
         
         super.viewDidLoad()

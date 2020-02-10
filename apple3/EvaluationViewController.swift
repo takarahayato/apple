@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import AVFoundation
 
-class EvaluationViewController: UIViewController {
+class EvaluationViewController: UIViewController,AVAudioPlayerDelegate {
+    
+    
+    var audio4Player: AVAudioPlayer!
 
     override func viewDidLoad() {
+        
+        playSound(name: "EvaluationView")
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     @IBAction func goback(_ sender: Any) {
+        
+        
+        audio4Player.stop()
+        
        
               // ①storyboardのインスタンス取得
               let storyboard: UIStoryboard = self.storyboard!
@@ -26,6 +37,9 @@ class EvaluationViewController: UIViewController {
               self.present(nextView, animated: true, completion: nil)
                   }
     @IBAction func goanswer(_ sender: Any) {
+        
+        
+        audio4Player.stop()
     
            // ①storyboardのインスタンス取得
            let storyboard: UIStoryboard = self.storyboard!
@@ -36,6 +50,8 @@ class EvaluationViewController: UIViewController {
            self.present(nextView, animated: true, completion: nil)
                }
     @IBAction func gosmallmiss(_ sender: Any) {
+        
+        audio4Player.stop()
     
            // ①storyboardのインスタンス取得
            let storyboard: UIStoryboard = self.storyboard!
@@ -59,5 +75,33 @@ class EvaluationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func playSound(name: String) {
+                  guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+                  print("音源ファイルが見つかりません")
+                      return
+                  }
+
+                  do {
+               //AVAudioPlayerのインスタンス化
+                      audio4Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+                //AVAudioPlayerのデリゲートをセット
+                      audio4Player.delegate = self
+
+                      // 音声の再生
+                      audio4Player.play()
+                   
+                   //音楽のループ
+                   audio4Player.numberOfLoops = -1
+                  }
+                  catch {
+                  }
+        
+
+
+    }
+
 
 }

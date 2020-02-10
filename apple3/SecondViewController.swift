@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // 単語とその意味のリストのリスト
 // ex. [["hello", "こんにちは"], ["see", "見る"]]
@@ -14,12 +15,18 @@ var words:[[String]] = []
 // タップしたセルのインデックス番号を保存
 var cell_num:Int = 0
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate {
+    
+    
+    var audio5Player: AVAudioPlayer!
     
     let userDefaults = UserDefaults.standard
     
     // 単語のセルをタップした時の動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        audio5Player.stop()
+        
         // タップしたセルのインデックス番号を保存
         cell_num = indexPath.row
         // 単語編集画面に移動
@@ -60,12 +67,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     override func viewDidLoad() {
+        
+        playSound(name: "SecondView")
+        
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
     }
     // backボタン押下時の処理
           @IBAction func goback(_ sender: Any) {
+            
+            audio5Player.stop()
        
               // ①storyboardのインスタンス取得
               let storyboard: UIStoryboard = self.storyboard!
@@ -77,6 +90,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                   }
     // add wordボタン押下時の処理
     @IBAction func addword(_ sender: Any) {
+        
+        audio5Player.stop()
+        
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Addwordpage") as! AddWordViewController
         self.present(nextView, animated: true, completion: nil)
@@ -93,5 +109,33 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func playSound(name: String) {
+                   guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+                   print("音源ファイルが見つかりません")
+                       return
+                   }
+
+                   do {
+                //AVAudioPlayerのインスタンス化
+                       audio5Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+                 //AVAudioPlayerのデリゲートをセット
+                       audio5Player.delegate = self
+
+                       // 音声の再生
+                       audio5Player.play()
+                    
+                    //音楽のループ
+                    audio5Player.numberOfLoops = -1
+                   }
+                   catch {
+                   }
+         
+
+
+     }
+
 
 }
