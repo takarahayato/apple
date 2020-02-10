@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DCC621423F128D700B51E56 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC621323F128D700B51E56 /* SelectViewController.swift */; };
 		2DCE0DC923E93CA90008DB10 /* test2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2DCE0DC823E93CA90008DB10 /* test2.JPG */; };
 		62BF4C0B239F4E020066A201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C0A239F4E020066A201 /* AppDelegate.swift */; };
 		62BF4C0D239F4E020066A201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF4C0C239F4E020066A201 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DCC621323F128D700B51E56 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		2DCE0DC823E93CA90008DB10 /* test2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.JPG; sourceTree = "<group>"; };
 		62BF4C07239F4E020066A201 /* apple3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apple3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BF4C0A239F4E020066A201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				62BF4C0C239F4E020066A201 /* SceneDelegate.swift */,
 				62BF4C0E239F4E020066A201 /* ViewController.swift */,
 				62BF4C10239F4E020066A201 /* Main.storyboard */,
+				2DCC621323F128D700B51E56 /* SelectViewController.swift */,
 				62BF4C42239F76930066A201 /* SmallmissViewController.swift */,
 				2DCE0DC823E93CA90008DB10 /* test2.JPG */,
 				62BF4C40239F70220066A201 /* EvaluationViewController.swift */,
@@ -319,6 +322,7 @@
 				E4B2299223E2766400E3BBDD /* addBackground.swift in Sources */,
 				62BF4C3F239F66970066A201 /* MisswordViewController.swift in Sources */,
 				E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */,
+				2DCC621423F128D700B51E56 /* SelectViewController.swift in Sources */,
 				62BF4C3B239F4EA30066A201 /* SecondViewController.swift in Sources */,
 				62BF4C0F239F4E020066A201 /* ViewController.swift in Sources */,
 				62BF4C43239F76930066A201 /* SmallmissViewController.swift in Sources */,

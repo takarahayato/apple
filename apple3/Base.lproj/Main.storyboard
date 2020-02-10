@@ -10,7 +10,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Farstpage" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="apple3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -19,7 +18,7 @@
                             <button opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wBR-nz-S72">
                                 <rect key="frame" x="254" y="436" width="259" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94333755970001221" green="0.78085126683211403" blue="0.51300589389948792" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.7803921568627451" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.94333755970001221" green="0.77947953347810428" blue="0.55367040890839903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -77,9 +76,68 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="REJ-le-d1m" kind="show" id="85V-df-Ryp"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.28125" y="114.84374999999999"/>
+        </scene>
+        <!--Select View Controller-->
+        <scene sceneID="cJr-BQ-7rv">
+            <objects>
+                <viewController storyboardIdentifier="SelectViewController" modalPresentationStyle="fullScreen" id="REJ-le-d1m" customClass="SelectViewController" customModule="apple3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CxB-MZ-gRd">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-1h-T5l">
+                                <rect key="frame" x="52" y="63" width="126" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTp-We-5a9">
+                                <rect key="frame" x="52" y="86" width="130" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="ホームへ"/>
+                                <connections>
+                                    <action selector="goback:" destination="REJ-le-d1m" eventType="touchUpInside" id="wuA-tq-am0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-z8-UHM">
+                                <rect key="frame" x="223" y="256" width="323" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.7803921568627451" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="4択問題">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="Answer:" destination="REJ-le-d1m" eventType="touchUpInside" id="4xT-dh-sFM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6m1-0C-Qt3">
+                                <rect key="frame" x="223" y="501" width="323" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94509803921568614" green="0.7803921568627451" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="単語綴り問題">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="SpellingAnswer:" destination="REJ-le-d1m" eventType="touchUpInside" id="Rjc-cw-3Qt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JDc-ib-dLI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="clk-Md-pZX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4M-Az-j9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933.59375" y="-1264.453125"/>
         </scene>
         <!--Answer View Controller-->
         <scene sceneID="TYg-6S-hsS">
@@ -189,6 +247,7 @@
                         <outlet property="NextButton" destination="UiC-n5-nYO" id="jIw-Pd-c6F"/>
                         <outlet property="Question" destination="8pA-gN-qsr" id="gj0-b0-anP"/>
                         <outlet property="Question_number" destination="Vw6-08-eA3" id="54w-Du-WV0"/>
+                        <segue destination="GlM-bh-Lqd" kind="show" id="yQi-BK-CUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcZ-LE-hGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -259,7 +318,7 @@
         <!--Evaluation View Controller-->
         <scene sceneID="uLR-Vl-ovJ">
             <objects>
-                <viewController storyboardIdentifier="Evaluationpage" id="GlM-bh-Lqd" customClass="EvaluationViewController" customModule="apple3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Evaluationpage" modalPresentationStyle="fullScreen" id="GlM-bh-Lqd" customClass="EvaluationViewController" customModule="apple3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBX-yJ-YrB">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,6 +375,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8LJ-jt-5oV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6XA-QO-ObV"/>
                     <connections>
                         <outlet property="anser_par" destination="O9r-K9-N3R" id="SNT-tZ-nsf"/>
                         <outlet property="hop" destination="luQ-wh-O2G" id="Vle-Wy-mx3"/>

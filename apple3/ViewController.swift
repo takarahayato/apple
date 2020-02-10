@@ -36,7 +36,7 @@ class ViewController: UIViewController {
                    let storyboard: UIStoryboard = self.storyboard!
             
                    // ②遷移先ViewControllerのインスタンス取得
-                   let nextView = storyboard.instantiateViewController(withIdentifier: "Answerpage") as! AnswerViewController
+                   let nextView = storyboard.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
                        // ③画面遷移
                    self.present(nextView, animated: true, completion: nil)
         } else {
