@@ -8,6 +8,12 @@
 
 import UIKit
 
+var Correct_answer_count :Int = 0
+var count :Int = 1
+var count_max :Int = 10
+var missWords:[[String]] = []
+var Question_Select:Int=0
+
 class SelectViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -30,7 +36,7 @@ class SelectViewController: UIViewController {
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
-        let nextView = storyboard.instantiateViewController(withIdentifier: "Answerpage") as! AnswerViewController
+        let nextView = storyboard.instantiateViewController(withIdentifier: "SpellingAnswerViewController") as! SpellingAnswerViewController
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
     }
