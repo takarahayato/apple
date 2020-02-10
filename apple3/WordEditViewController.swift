@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WordEditViewController: UIViewController {
+class WordEditViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -18,6 +18,7 @@ class WordEditViewController: UIViewController {
         super.viewDidLoad()
         wordField.text = words[cell_num][0]
         meanWordField.text = words[cell_num][1]
+        wordField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -28,6 +29,15 @@ class WordEditViewController: UIViewController {
     @IBOutlet weak var wordField: UITextField!
     @IBOutlet weak var meanWordField: UITextView!
     
+    let userDefaults = UserDefaults.standard
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        wordField.resignFirstResponder()
+        return true
+    }
     
     
     
@@ -46,6 +56,8 @@ class WordEditViewController: UIViewController {
         if wordField.text != "" && meanWordField.text != "" {
             // 単語の修正を反映させる
             words[cell_num] = [wordField.text!, meanWordField.text!]
+            // 配列wordsをuserdefaultで保存する．
+            userDefaults.set(words, forKey: "wordsArray")
             // 単語一覧画面に戻る
             let storyboard: UIStoryboard = self.storyboard!
             let nextView = storyboard.instantiateViewController(withIdentifier: "Secondpage") as! SecondViewController

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AddWordViewController: UIViewController {
+class AddWordViewController: UIViewController, UITextFieldDelegate {
     
     
 
@@ -29,6 +29,8 @@ class AddWordViewController: UIViewController {
         MeanTextView.layer.borderColor = UIColor.black.cgColor
         // 枠の幅
         MeanTextView.layer.borderWidth = 0.5
+        
+        wordField.delegate = self
     }
     
     
@@ -41,6 +43,14 @@ class AddWordViewController: UIViewController {
     
     
 
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        wordField.resignFirstResponder()
+        return true
+    }
+    
+    
     
     
     @IBAction func addWordButton(_ sender: Any) {
