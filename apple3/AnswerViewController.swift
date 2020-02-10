@@ -50,6 +50,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     override func viewDidLoad() {
         
         
+        
         playSound(name: "12058")
         
         
@@ -122,6 +123,9 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         Answer.isHidden = false
         NextButton.isHidden = false
     }
+    func CorrectUnHide(){
+        Answer.isHidden = false
+    }
     
     // 正誤判定
     func Judge(Choice:Int){
@@ -131,13 +135,27 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
                 Answer.text = "正解！"
                 player2.play()
                 Correct_answer_count = Correct_answer_count + 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    // 1.5秒後に実行したい処理
+                    if(count != count_max){
+                        count = count + 1
+                        if(count == count_max){
+                            self.NextButton.setTitle("終了", for: UIControl.State())
+                        }
+                        self.RandomQuestions()
+                    }
+                    else{
+                        self.evaluation()
+                    }
+                }
+                CorrectUnHide()
             }
             else{
                 Answer.text = "残念正解は\(words[Choices[0]][1])"
                 missWords.append(words[Choices[0]])
                 player.play()
+                UnHide()
             }
-            UnHide()
         }
     }
 

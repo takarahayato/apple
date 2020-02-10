@@ -33,6 +33,8 @@ class EvaluationViewController: UIViewController {
         hop.isHidden = false
     }
     @IBAction func goback(_ sender: Any) {
+        count = 1
+        Correct_answer_count = 0
        
               // ①storyboardのインスタンス取得
               let storyboard: UIStoryboard = self.storyboard!
