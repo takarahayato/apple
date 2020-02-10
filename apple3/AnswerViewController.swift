@@ -9,10 +9,7 @@
 import UIKit
 import AVFoundation
 
-var Correct_answer_count :Int = 0
-var count :Int = 1
-var count_max :Int = 10
-var missWords:[[String]] = []
+
 
 class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
@@ -207,6 +204,8 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     // backボタン押下時の処理
     @IBAction func goback(_ sender: Any) {
+        count = 1
+        Correct_answer_count = 0
           // ①storyboardのインスタンス取得
           let storyboard: UIStoryboard = self.storyboard!
    
@@ -222,6 +221,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
 //
     func evaluation(){
+            Question_Select = 0
            // ①storyboardのインスタンス取得
            let storyboard: UIStoryboard = self.storyboard!
     
@@ -233,7 +233,6 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
            audioPlayer.stop()
     }
     
-     
     
     func playSound(name: String) {
            guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
