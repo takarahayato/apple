@@ -21,7 +21,6 @@ class MisswordViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     override func viewDidLoad() {
-        self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
     }
     

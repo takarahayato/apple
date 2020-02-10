@@ -14,11 +14,7 @@ class EvaluationViewController: UIViewController {
     @IBOutlet weak var hop: UILabel!
     
     override func viewDidLoad() {
-
-        self.view.addBackground(name: "IMG_9328.JPG")
-
         Hide()
-
         super.viewDidLoad()
         if(count_max == Correct_answer_count){
             UnHide()

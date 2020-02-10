@@ -48,7 +48,6 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     
     override func viewDidLoad() {
-        self.view.addBackground(name: "IMG_9371.JPG")
         
         
         

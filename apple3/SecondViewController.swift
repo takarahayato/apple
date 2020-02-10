@@ -60,7 +60,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     override func viewDidLoad() {
-         self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.

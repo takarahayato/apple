@@ -24,7 +24,6 @@ class AddWordViewController: UIViewController {
     
     
     override func viewDidLoad() {
-         self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
         // 枠のカラー
         MeanTextView.layer.borderColor = UIColor.black.cgColor
