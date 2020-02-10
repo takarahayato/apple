@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WordEditViewController: UIViewController {
+class WordEditViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -18,6 +18,7 @@ class WordEditViewController: UIViewController {
         super.viewDidLoad()
         wordField.text = words[cell_num][0]
         meanWordField.text = words[cell_num][1]
+        wordField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -29,6 +30,14 @@ class WordEditViewController: UIViewController {
     @IBOutlet weak var meanWordField: UITextView!
     
     let userDefaults = UserDefaults.standard
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        wordField.resignFirstResponder()
+        return true
+    }
     
     
     
