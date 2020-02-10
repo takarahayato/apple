@@ -10,12 +10,16 @@ import UIKit
 import AVFoundation
 
 var Correct_answer_count :Int = 0
+var count :Int = 1
+var count_max :Int = 10
 var missWords:[[String]] = []
 
 class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     
     @IBOutlet weak var Question: UILabel!
+    
+    @IBOutlet weak var Question_number: UILabel!
     
     @IBOutlet weak var Button1: UIButton!
     @IBOutlet weak var Button2: UIButton!
@@ -31,7 +35,6 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     var player2:AVAudioPlayer!
     var audioPlayer: AVAudioPlayer!
     var RandomNumber :Int!
-    var count :Int = 0
     var Judgment : DarwinBoolean!
     var ButtonPush : DarwinBoolean!
     var RandomFour = [0,1,2,3]
@@ -46,6 +49,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     override func viewDidLoad() {
         self.view.addBackground(name: "IMG_9371.JPG")
+        
         
         
         playSound(name: "12058")
@@ -78,6 +82,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     }
     
     func RandomQuestions(){
+        Question_number.text = "\(count)/\(count_max)"
         ButtonPush = true
         Hide()
         Choices = [Int]()
@@ -119,6 +124,9 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
         Answer.isHidden = false
         NextButton.isHidden = false
     }
+    func CorrectUnHide(){
+        Answer.isHidden = false
+    }
     
     // 正誤判定
     func Judge(Choice:Int){
@@ -128,13 +136,27 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
                 Answer.text = "正解！"
                 player2.play()
                 Correct_answer_count = Correct_answer_count + 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    // 1.5秒後に実行したい処理
+                    if(count != count_max){
+                        count = count + 1
+                        if(count == count_max){
+                            self.NextButton.setTitle("終了", for: UIControl.State())
+                        }
+                        self.RandomQuestions()
+                    }
+                    else{
+                        self.evaluation()
+                    }
+                }
+                CorrectUnHide()
             }
             else{
                 Answer.text = "残念正解は\(words[Choices[0]][1])"
                 missWords.append(words[Choices[0]])
                 player.play()
+                UnHide()
             }
-            UnHide()
         }
     }
 
@@ -158,12 +180,12 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
     
     
     @IBAction func NextButtonAction(_ sender: Any) {
-        if(count != 9){
-            RandomQuestions()
+        if(count != count_max){
             count = count + 1
-            if(count == 9){
+            if(count == count_max){
                 NextButton.setTitle("終了", for: UIControl.State())
             }
+            RandomQuestions()
         }
         else{
             // 誤答単語一覧での単語の重複を解消する
