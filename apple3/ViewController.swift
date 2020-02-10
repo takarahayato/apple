@@ -21,8 +21,12 @@ class ViewController: UIViewController {
 //        // 配列wordsをuserdefaultで保存する．
 //        userDefaults.set(words, forKey: "wordsArray")
         userDefaults.register(defaults: ["wordsArray": []])
+        userDefaults.register(defaults: ["miss": []])
         words = userDefaults.array(forKey: "wordsArray") as! [[String]]
+        allMissWords = userDefaults.array(forKey: "miss") as! [[String]]
                 // Do any additional setup after loading the view.
+        // 表示したい画像の名前(拡張子含む)を引数とする。
+        self.view.addBackground(name: "test2.JPG")
     }
  
     // 問題ボタン押下時の処理
@@ -32,7 +36,7 @@ class ViewController: UIViewController {
                    let storyboard: UIStoryboard = self.storyboard!
             
                    // ②遷移先ViewControllerのインスタンス取得
-                   let nextView = storyboard.instantiateViewController(withIdentifier: "Answerpage") as! AnswerViewController
+                   let nextView = storyboard.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
                        // ③画面遷移
                    self.present(nextView, animated: true, completion: nil)
         } else {

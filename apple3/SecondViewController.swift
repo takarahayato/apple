@@ -8,11 +8,25 @@
 
 import UIKit
 
+// 単語とその意味のリストのリスト
+// ex. [["hello", "こんにちは"], ["see", "見る"]]
 var words:[[String]] = []
+// タップしたセルのインデックス番号を保存
+var cell_num:Int = 0
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
+    
+    // 単語のセルをタップした時の動作
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // タップしたセルのインデックス番号を保存
+        cell_num = indexPath.row
+        // 単語編集画面に移動
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "WordEdit") as! WordEditViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
@@ -28,12 +42,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+    //スワイプしたセルを削除　
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            words.remove(at: indexPath.row)
+//            userDefaults.synchronize() これは現在非推奨らしい
+            userDefaults.set(words, forKey: "wordsArray")
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // UserDefaultsへの値の保存を明示的に行う
-        userDefaults.synchronize()
         
         // Do any additional setup after loading the view.
     }
