@@ -47,7 +47,7 @@ class EvaluationViewController: UIViewController {
     @IBAction func goanswer(_ sender: Any) {
         count = 1
         Correct_answer_count = 0
-        if(Question_Select==0){
+        if(Question_Select == 0){
             // ①storyboardのインスタンス取得
             let storyboard: UIStoryboard = self.storyboard!
             // ②遷移先ViewControllerのインスタンス取得
@@ -55,11 +55,19 @@ class EvaluationViewController: UIViewController {
             // ③画面遷移
             self.present(nextView, animated: true, completion: nil)
         }
-        else{
+        else if(Question_Select == 1){
             // ①storyboardのインスタンス取得
             let storyboard: UIStoryboard = self.storyboard!
             // ②遷移先ViewControllerのインスタンス取得
             let nextView = storyboard.instantiateViewController(withIdentifier: "SpellingAnswerViewController") as! SpellingAnswerViewController
+            // ③画面遷移
+            self.present(nextView, animated: true, completion: nil)
+        }
+        else{
+            // ①storyboardのインスタンス取得
+            let storyboard: UIStoryboard = self.storyboard!
+            // ②遷移先ViewControllerのインスタンス取得
+            let nextView = storyboard.instantiateViewController(withIdentifier: "WrongAnswerViewController") as! WrongAnswerViewController
             // ③画面遷移
             self.present(nextView, animated: true, completion: nil)
         }

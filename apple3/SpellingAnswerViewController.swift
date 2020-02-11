@@ -28,7 +28,7 @@ class SpellingAnswerViewController: UIViewController {
     
     
     var Choices = [Int]()
-    var Answer = ""
+    var Answer : String!
     var ButtonPush : DarwinBoolean!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,7 +75,7 @@ class SpellingAnswerViewController: UIViewController {
     @IBAction func Decision(_ sender: Any) {
         Answer = Answertext.text!
         
-        if(Answer == words[Choices[0]][0]){
+        if(Answer.lowercased()  == words[Choices[0]][0].lowercased()){
             Answerlabel.text = "正解!"
             Correct_answer_count = Correct_answer_count + 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -125,6 +125,8 @@ class SpellingAnswerViewController: UIViewController {
     }
     
     @IBAction func goback(_ sender: Any) {
+        count = 1
+        Correct_answer_count = 0
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
