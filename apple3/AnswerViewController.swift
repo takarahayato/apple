@@ -132,7 +132,7 @@ class AnswerViewController: UIViewController ,AVAudioPlayerDelegate{
                 Answer.text = "正解！"
                 player2.play()
                 Correct_answer_count = Correct_answer_count + 1
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     // 1.5秒後に実行したい処理
                     if(count != count_max){
                         count = count + 1

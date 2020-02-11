@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import AVFoundation
 
-class EvaluationViewController: UIViewController {
+var musicJudge2 : DarwinBoolean! = false
+var audioPlayerEvaluation: AVAudioPlayer!
+
+class EvaluationViewController: UIViewController,AVAudioPlayerDelegate {
     
     @IBOutlet weak var anser_par: UILabel!
     @IBOutlet weak var hop: UILabel!
     
+    
     override func viewDidLoad() {
+        if(musicJudge2==false){
+            playSound(name: "music_B")
+            musicJudge2 = true
+        }
+        
         Hide()
         super.viewDidLoad()
+        
+        
+        
+        
         if(count_max == Correct_answer_count){
             UnHide()
             hop.numberOfLines = 2;
@@ -33,6 +47,8 @@ class EvaluationViewController: UIViewController {
         hop.isHidden = false
     }
     @IBAction func goback(_ sender: Any) {
+        audioPlayerEvaluation.stop()
+        musicJudge2 = false
         count = 1
         Correct_answer_count = 0
        
@@ -45,6 +61,8 @@ class EvaluationViewController: UIViewController {
               self.present(nextView, animated: true, completion: nil)
                   }
     @IBAction func goanswer(_ sender: Any) {
+        audioPlayerEvaluation.stop()
+        musicJudge2 = false
         count = 1
         Correct_answer_count = 0
         if(Question_Select == 0){
@@ -95,6 +113,29 @@ class EvaluationViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+     
     */
 
+    func playSound(name: String) {
+              guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+              print("音源ファイルが見つかりません")
+                  return
+              }
+
+              do {
+           //AVAudioPlayerのインスタンス化
+                  audioPlayerEvaluation = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+            //AVAudioPlayerのデリゲートをセット
+                  audioPlayerEvaluation.delegate = self
+
+                  // 音声の再生
+                  audioPlayerEvaluation.play()
+               
+               //音楽のループ
+               audioPlayerEvaluation.numberOfLoops = -1
+              }
+              catch {
+              }
+          }
 }
