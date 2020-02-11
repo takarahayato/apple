@@ -40,6 +40,8 @@ class SelectViewController: UIViewController {
     
     
     @IBAction func Answer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
@@ -50,6 +52,8 @@ class SelectViewController: UIViewController {
     
     
     @IBAction func SpellingAnswer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
@@ -61,6 +65,8 @@ class SelectViewController: UIViewController {
     
     
     @IBAction func WrongAnswer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得

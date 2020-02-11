@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class SpellingAnswerViewController: UIViewController {
+class SpellingAnswerViewController: UIViewController,AVAudioPlayerDelegate {
     
     @IBOutlet weak var Answercount: UILabel!
     
@@ -26,7 +27,9 @@ class SpellingAnswerViewController: UIViewController {
     
     var userDefaults = UserDefaults.standard
     
-    
+    var player:AVAudioPlayer!
+    var player2:AVAudioPlayer!
+    var audioPlayer: AVAudioPlayer!
     var Choices = [Int]()
     var Answer : String!
     var ButtonPush : DarwinBoolean!
@@ -37,13 +40,34 @@ class SpellingAnswerViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        playSound(name: "12058")
+        
+        
         super.viewDidLoad()
+        
+        let audioPath = Bundle.main.path(forResource: "incorrect1", ofType:"mp3")!
+        let audioUrl = URL(fileURLWithPath: audioPath)
+        
+        let audioPath2 = Bundle.main.path(forResource: "correct1", ofType:"mp3")!
+        let audioUr2 = URL(fileURLWithPath: audioPath2)
+        
+        
+        do {
+            try player = AVAudioPlayer(contentsOf:audioUrl)
+            
+            try player2 = AVAudioPlayer(contentsOf:audioUr2)
+            //音楽をバッファに読み込んでおく
+            player.prepareToPlay()
+        } catch {
+            print(error)
+        }
 
         // Do any additional setup after loading the view.
         RandomQuestions()
         missWords = []
     }
     func RandomQuestions(){
+        ButtonPush = true
         Answertext.text = ""
         Choices = [Int]()
         Choices.append(Int(arc4random()) % words.count)
@@ -73,30 +97,35 @@ class SpellingAnswerViewController: UIViewController {
     
     
     @IBAction func Decision(_ sender: Any) {
-        Answer = Answertext.text!
-        
-        if(Answer.lowercased()  == words[Choices[0]][0].lowercased()){
-            Answerlabel.text = "正解!"
-            Correct_answer_count = Correct_answer_count + 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                // 1.5秒後に実行したい処理
-                if(count != count_max){
-                    count = count + 1
-                    if(count == count_max){
-                        self.NextButton.setTitle("終了", for: UIControl.State())
+        if(ButtonPush == true){
+            ButtonPush = false
+            Answer = Answertext.text!
+            
+            if(Answer.lowercased()  == words[Choices[0]][0].lowercased()){
+                Answerlabel.text = "正解!"
+                player2.play()
+                Correct_answer_count = Correct_answer_count + 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    // 1.5秒後に実行したい処理
+                    if(count != count_max){
+                        count = count + 1
+                        if(count == count_max){
+                            self.NextButton.setTitle("終了", for: UIControl.State())
+                        }
+                        self.RandomQuestions()
                     }
-                    self.RandomQuestions()
+                    else{
+                        self.evaluation()
+                    }
                 }
-                else{
-                    self.evaluation()
-                }
+                CorrectUnHide()
             }
-            CorrectUnHide()
-        }
-        else{
-            Answerlabel.text = "残念正解は\(words[Choices[0]][0])"
-            missWords.append(words[Choices[0]])
-            UnHide()
+            else{
+                Answerlabel.text = "残念正解は\(words[Choices[0]][0])"
+                missWords.append(words[Choices[0]])
+                player.play()
+                UnHide()
+            }
         }
     }
     
@@ -133,20 +162,44 @@ class SpellingAnswerViewController: UIViewController {
         let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
+        
+        audioPlayer.stop()
     }
     
     func evaluation(){
-            Question_Select = 1
-           // ①storyboardのインスタンス取得
-           let storyboard: UIStoryboard = self.storyboard!
-    
-           // ②遷移先ViewControllerのインスタンス取得
-           let nextView = storyboard.instantiateViewController(withIdentifier: "Evaluationpage") as! EvaluationViewController
-               // ③画面遷移
-           self.present(nextView, animated: true, completion: nil)
+        Question_Select = 1
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Evaluationpage") as! EvaluationViewController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+        audioPlayer.stop()
     }
     
-    
+    func playSound(name: String) {
+        guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+        print("音源ファイルが見つかりません")
+            return
+        }
+
+        do {
+     //AVAudioPlayerのインスタンス化
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+      //AVAudioPlayerのデリゲートをセット
+            audioPlayer.delegate = self
+
+            // 音声の再生
+            audioPlayer.play()
+         
+         //音楽のループ
+         audioPlayer.numberOfLoops = -1
+        }
+        catch {
+        }
+    }
     
     
     /*

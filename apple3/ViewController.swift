@@ -45,8 +45,6 @@ class ViewController: UIViewController ,AVAudioPlayerDelegate{
        @IBAction func goanswer(_ sender: Any) {
         
         if words.count >= 4 {
-            audio2Player.stop()
-            musicJudge = false
             // ①storyboardのインスタンス取得
                    let storyboard: UIStoryboard = self.storyboard!
             
