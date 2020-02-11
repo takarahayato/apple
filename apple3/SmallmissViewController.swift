@@ -12,6 +12,7 @@ import AVFoundation
 class SmallmissViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

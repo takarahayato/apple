@@ -30,6 +30,8 @@
 		6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */; };
 		6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */; };
 		6C00D7AC23B46CD300DD7FB4 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */; };
+		6C989B1A23F2731500F2B8E7 /* IMG_9371.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6C989B1823F2731400F2B8E7 /* IMG_9371.JPG */; };
+		6C989B1B23F2731500F2B8E7 /* IMG_9328.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6C989B1923F2731500F2B8E7 /* IMG_9328.JPG */; };
 		E44D37DB23E278B4009D9EF2 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E44D37DA23E278B4009D9EF2 /* test.png */; };
 		E45EEA3B23A644F200DECE55 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */; };
 		E477E5CF23EB980A008A6A9F /* WordEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477E5CE23EB980A008A6A9F /* WordEditViewController.swift */; };
@@ -83,6 +85,8 @@
 		6C00D7A023B35AFD00DD7FB4 /* incorrect1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect1.mp3; sourceTree = "<group>"; };
 		6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12058.mp3; sourceTree = "<group>"; };
 		6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
+		6C989B1823F2731400F2B8E7 /* IMG_9371.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9371.JPG; sourceTree = "<group>"; };
+		6C989B1923F2731500F2B8E7 /* IMG_9328.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9328.JPG; sourceTree = "<group>"; };
 		E44D37DA23E278B4009D9EF2 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		E45EEA3A23A644F200DECE55 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		E477E5CE23EB980A008A6A9F /* WordEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEditViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		62BF4C09239F4E020066A201 /* apple3 */ = {
 			isa = PBXGroup;
 			children = (
+				6C989B1923F2731500F2B8E7 /* IMG_9328.JPG */,
+				6C989B1823F2731400F2B8E7 /* IMG_9371.JPG */,
 				6C00D7AB23B46CD300DD7FB4 /* correct1.mp3 */,
 				6C00D7A923B46C8600DD7FB4 /* 12058.mp3 */,
 				62DCB7C123F26FFD00D9F553 /* music_B.mp3 */,
@@ -299,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C00D7AA23B46C8700DD7FB4 /* 12058.mp3 in Resources */,
+				6C989B1B23F2731500F2B8E7 /* IMG_9328.JPG in Resources */,
 				62BF4C17239F4E030066A201 /* LaunchScreen.storyboard in Resources */,
 				2DCE0DC923E93CA90008DB10 /* test2.JPG in Resources */,
 				E44D37DB23E278B4009D9EF2 /* test.png in Resources */,
@@ -307,6 +314,7 @@
 				62DCB7C023F26FEE00D9F553 /* music_A.mp3 in Resources */,
 				6C00D7A123B35AFD00DD7FB4 /* incorrect1.mp3 in Resources */,
 				62BF4C12239F4E020066A201 /* Main.storyboard in Resources */,
+				6C989B1A23F2731500F2B8E7 /* IMG_9371.JPG in Resources */,
 				6C00D7AC23B46CD300DD7FB4 /* correct1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,7 @@ class WordEditViewController: UIViewController, UITextFieldDelegate {
     
 
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
         wordField.text = words[cell_num][0]
         meanWordField.text = words[cell_num][1]

@@ -19,6 +19,7 @@ class EvaluationViewController: UIViewController,AVAudioPlayerDelegate {
     
     
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9328.JPG")
         if(musicJudge2==false){
             playSound(name: "music_B")
             musicJudge2 = true
@@ -33,7 +34,7 @@ class EvaluationViewController: UIViewController,AVAudioPlayerDelegate {
         if(count_max == Correct_answer_count){
             UnHide()
             hop.numberOfLines = 2;
-            hop.text = "さすがだぞ！英単語をしっかり\n覚えているんだな！"
+            hop.text = "さすがだぞ！しっかり覚えているんだな！"
         }
         anser_par.text = "\(Correct_answer_count)/\(count_max)"
         // Do any additional setup after loading the view.

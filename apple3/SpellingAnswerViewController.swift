@@ -35,11 +35,13 @@ class SpellingAnswerViewController: UIViewController,AVAudioPlayerDelegate {
     var ButtonPush : DarwinBoolean!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         // テキスト入力部以外をタッチするとキーボードを格納
         self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9371.JPG")
         playSound(name: "12058")
         
         

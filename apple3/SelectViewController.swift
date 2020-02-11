@@ -21,6 +21,7 @@ class SelectViewController: UIViewController {
     @IBOutlet weak var WrongAnswer: UIButton!
     
     override func viewDidLoad() {
+        self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
         if(allMissWords.count >= 4){
             UnHide()
