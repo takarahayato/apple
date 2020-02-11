@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+
+var musicJudge : DarwinBoolean! = false
+var audio2Player: AVAudioPlayer!
+
+class ViewController: UIViewController ,AVAudioPlayerDelegate{
+    
+
     
 
     let userDefaults = UserDefaults.standard
@@ -17,6 +24,11 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        if(musicJudge==false){
+            playSound(name: "music_A")
+            musicJudge = true
+        }
+        
         super.viewDidLoad()
 //        // 配列wordsをuserdefaultで保存する．
 //        userDefaults.set(words, forKey: "wordsArray")
@@ -31,7 +43,10 @@ class ViewController: UIViewController {
  
     // 問題ボタン押下時の処理
        @IBAction func goanswer(_ sender: Any) {
+        
         if words.count >= 4 {
+            audio2Player.stop()
+            musicJudge = false
             // ①storyboardのインスタンス取得
                    let storyboard: UIStoryboard = self.storyboard!
             
@@ -78,6 +93,29 @@ class ViewController: UIViewController {
 
         self.present(alert, animated: true, completion:nil)
     }
+    func playSound(name: String) {
+        guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+        print("音源ファイルが見つかりません")
+            return
+        }
+
+        do {
+     //AVAudioPlayerのインスタンス化
+            audio2Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+      //AVAudioPlayerのデリゲートをセット
+            audio2Player.delegate = self
+
+            // 音声の再生
+            audio2Player.play()
+         
+         //音楽のループ
+         audio2Player.numberOfLoops = -1
+        }
+        catch {
+        }
+    }
+
 
     
 

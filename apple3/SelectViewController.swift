@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 var Correct_answer_count :Int = 0
 var count :Int = 1
