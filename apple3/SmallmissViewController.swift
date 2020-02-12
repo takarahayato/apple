@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SmallmissViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     @IBAction func goback(_ sender: Any) {
-    
-           // ①storyboardのインスタンス取得
-           let storyboard: UIStoryboard = self.storyboard!
-    
-           // ②遷移先ViewControllerのインスタンス取得
-           let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
-               // ③画面遷移
-           self.present(nextView, animated: true, completion: nil)
-               }
+
+        audioPlayerEvaluation.stop()
+        musicJudge2 = false
+        count = 1
+        Correct_answer_count = 0
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Farstpage") as! ViewController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+    }
     @IBAction func goEvaluation(_ sender: Any) {
     
            // ①storyboardのインスタンス取得

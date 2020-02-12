@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 var Correct_answer_count :Int = 0
 var count :Int = 1
@@ -15,14 +16,33 @@ var missWords:[[String]] = []
 var Question_Select:Int=0
 
 class SelectViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var WrongAnswer: UIButton!
+    
     override func viewDidLoad() {
+        self.view.addBackground(name: "IMG_9328.JPG")
         super.viewDidLoad()
+        if(allMissWords.count >= 4){
+            UnHide()
+        }
+        else{
+            Hide()
+        }
 
         // Do any additional setup after loading the view.
     }
+    func Hide(){
+        WrongAnswer.isHidden = true
+    }
+    func UnHide(){
+        WrongAnswer.isHidden = false
+    }
+    
     
     @IBAction func Answer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
@@ -33,6 +53,8 @@ class SelectViewController: UIViewController {
     
     
     @IBAction func SpellingAnswer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
@@ -40,6 +62,21 @@ class SelectViewController: UIViewController {
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func WrongAnswer(_ sender: Any) {
+        audio2Player.stop()
+        musicJudge = false
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "WrongAnswerViewController") as! WrongAnswerViewController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
+    
     
     
     @IBAction func goback(_ sender: Any) {

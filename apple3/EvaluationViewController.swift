@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import AVFoundation
 
-class EvaluationViewController: UIViewController {
+var musicJudge2 : DarwinBoolean! = false
+var audioPlayerEvaluation: AVAudioPlayer!
+
+class EvaluationViewController: UIViewController,AVAudioPlayerDelegate {
     
     @IBOutlet weak var anser_par: UILabel!
     @IBOutlet weak var hop: UILabel!
     
+    
     override func viewDidLoad() {
+         self.view.addBackground(name: "IMG_9328.JPG")
+        if(musicJudge2==false){
+            playSound(name: "music_B")
+            musicJudge2 = true
+        }
+        
         Hide()
         super.viewDidLoad()
+        
+        
+        
+        
         if(count_max == Correct_answer_count){
             UnHide()
             hop.numberOfLines = 2;
-            hop.text = "さすがだぞ！英単語をしっかり\n覚えているんだな！"
+            hop.text = "さすがだぞ！しっかり覚えているんだな！"
         }
         anser_par.text = "\(Correct_answer_count)/\(count_max)"
         // Do any additional setup after loading the view.
@@ -33,6 +48,8 @@ class EvaluationViewController: UIViewController {
         hop.isHidden = false
     }
     @IBAction func goback(_ sender: Any) {
+        audioPlayerEvaluation.stop()
+        musicJudge2 = false
         count = 1
         Correct_answer_count = 0
        
@@ -45,9 +62,11 @@ class EvaluationViewController: UIViewController {
               self.present(nextView, animated: true, completion: nil)
                   }
     @IBAction func goanswer(_ sender: Any) {
+        audioPlayerEvaluation.stop()
+        musicJudge2 = false
         count = 1
         Correct_answer_count = 0
-        if(Question_Select==0){
+        if(Question_Select == 0){
             // ①storyboardのインスタンス取得
             let storyboard: UIStoryboard = self.storyboard!
             // ②遷移先ViewControllerのインスタンス取得
@@ -55,11 +74,19 @@ class EvaluationViewController: UIViewController {
             // ③画面遷移
             self.present(nextView, animated: true, completion: nil)
         }
-        else{
+        else if(Question_Select == 1){
             // ①storyboardのインスタンス取得
             let storyboard: UIStoryboard = self.storyboard!
             // ②遷移先ViewControllerのインスタンス取得
             let nextView = storyboard.instantiateViewController(withIdentifier: "SpellingAnswerViewController") as! SpellingAnswerViewController
+            // ③画面遷移
+            self.present(nextView, animated: true, completion: nil)
+        }
+        else{
+            // ①storyboardのインスタンス取得
+            let storyboard: UIStoryboard = self.storyboard!
+            // ②遷移先ViewControllerのインスタンス取得
+            let nextView = storyboard.instantiateViewController(withIdentifier: "WrongAnswerViewController") as! WrongAnswerViewController
             // ③画面遷移
             self.present(nextView, animated: true, completion: nil)
         }
@@ -87,6 +114,29 @@ class EvaluationViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+     
     */
 
+    func playSound(name: String) {
+              guard let path = Bundle.main.path(forResource:name, ofType: "mp3") else {
+              print("音源ファイルが見つかりません")
+                  return
+              }
+
+              do {
+           //AVAudioPlayerのインスタンス化
+                  audioPlayerEvaluation = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+
+            //AVAudioPlayerのデリゲートをセット
+                  audioPlayerEvaluation.delegate = self
+
+                  // 音声の再生
+                  audioPlayerEvaluation.play()
+               
+               //音楽のループ
+               audioPlayerEvaluation.numberOfLoops = -1
+              }
+              catch {
+              }
+          }
 }
